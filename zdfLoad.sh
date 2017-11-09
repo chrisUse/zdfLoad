@@ -10,7 +10,6 @@ else
   exit 1
 fi
 
-#wget "https://www.zdf.de/dokumentation/terra-x/deutschland-saga-ueber-deutsche-tradition-und-das-image-der-100.html" -O film.html
 wget "$baseURL" -O film.html
 apiToken=$(grep -A13 -e "data-zdfplayer-jsb" film.html | grep -e "apiToken" | sed "s/.*apiToken\": \"\(.*\)\".*/\1/")
 nextUrl=$(grep -e "\.json" film.html | grep "profile=player" | sed "s/.*content\": \"\(.*\)\".*/\1/")
